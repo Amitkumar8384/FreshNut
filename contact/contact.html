@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - FreshNut</title>
+  <meta name="description" content="Get in touch with FreshNut for order support, business inquiries, or feedback." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/navbar.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <link rel="stylesheet" href="../contact/contact.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header id="app-navbar"></header>
+
+  <main class="contact-page">
+    <section class="contact-hero">
+      <p class="contact-kicker">Contact FreshNut</p>
+      <h1>We are here to help</h1>
+      <p>
+        Have a question about your order, wholesale inquiries, or product feedback? Share the details and we will
+        get back within 24-48 hours.
+      </p>
+    </section>
+
+    <section class="contact-grid">
+      <div class="contact-card">
+        <h2>Send a Message</h2>
+        <p class="muted">Please fill the form and our team will connect with you shortly.</p>
+        <form id="contactForm" class="contact-form">
+          <div class="field-row">
+            <label>
+              Full Name
+              <input type="text" name="name" placeholder="Your name" required />
+            </label>
+            <label>
+              Email Address
+              <input type="email" name="email" placeholder="you@example.com" required />
+            </label>
+          </div>
+
+          <div class="field-row">
+            <label>
+              Phone Number
+              <input type="tel" name="phone" placeholder="+91 90000 00000" />
+            </label>
+            <label>
+              Subject
+              <select name="subject" required>
+                <option value="">Select subject</option>
+                <option>Order support</option>
+                <option>Product inquiry</option>
+                <option>Wholesale or bulk</option>
+                <option>Feedback</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="full">
+            Message
+            <textarea name="message" rows="5" placeholder="Tell us how we can help..." required></textarea>
+          </label>
+
+          <button type="submit" class="contact-submit">Send Message</button>
+          <p id="contactFormStatus" class="form-note" aria-live="polite"></p>
+          <p class="form-note">We do not share your information with anyone.</p>
+        </form>
+      </div>
+
+      <aside class="contact-card info-card">
+        <h2>Reach Us Directly</h2>
+        <p class="muted">Available Monday to Saturday, 10:00 AM to 7:00 PM IST.</p>
+
+        <div class="info-list">
+          <div class="info-item">
+            <span class="info-icon"><i class="fa-solid fa-location-dot"></i></span>
+            <div>
+              <strong>Visit Store</strong>
+              <p>Okhla, New Delhi, India</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-icon"><i class="fa-regular fa-envelope"></i></span>
+            <div>
+              <strong>Email</strong>
+              <p>support@freshnut.in</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-icon"><i class="fa-solid fa-phone"></i></span>
+            <div>
+              <strong>Call Us</strong>
+              <p>+91 90000 00000</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-icon"><i class="fa-brands fa-whatsapp"></i></span>
+            <div>
+              <strong>WhatsApp</strong>
+              <p>+91 90000 00000</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-highlights">
+          <div class="highlight">
+            <strong>Fast replies</strong>
+            <span>Avg response within 6 hrs</span>
+          </div>
+          <div class="highlight">
+            <strong>Order help</strong>
+            <span>Tracking and issue resolution</span>
+          </div>
+          <div class="highlight">
+            <strong>Bulk orders</strong>
+            <span>Custom quotes for events</span>
+          </div>
+        </div>
+
+        <a class="contact-cta" href="../All Page/view-all-page.html">Shop FreshNut</a>
+      </aside>
+    </section>
+  </main>
+
+  <footer id="app-footer"></footer>
+
+  <script>
+    function readContactMessages() {
+      try {
+        var data = JSON.parse(localStorage.getItem("contactMessages") || "[]");
+        return Array.isArray(data) ? data : [];
+      } catch (_err) {
+        return [];
+      }
+    }
+
+    function createContactId(existingList) {
+      var list = Array.isArray(existingList) ? existingList : [];
+      var existingMap = {};
+      var maxSeq = 0;
+      for (var i = 0; i < list.length; i += 1) {
+        if (list[i] && list[i].id !== undefined && list[i].id !== null) {
+          var rawId = String(list[i].id).trim();
+          existingMap[rawId] = true;
+          if (/^CNT-\d+$/i.test(rawId)) {
+            var seq = Number(rawId.split("-")[1]);
+            if (Number.isFinite(seq) && seq > maxSeq) {
+              maxSeq = seq;
+            }
+          }
+        }
+      }
+
+      var nextSeq = maxSeq + 1;
+      var id = "";
+      do {
+        id = "CNT-" + String(nextSeq).padStart(6, "0");
+        nextSeq += 1;
+      } while (existingMap[id]);
+      return id;
+    }
+
+    function saveContactMessages(list) {
+      localStorage.setItem("contactMessages", JSON.stringify(list));
+    }
+
+    function bindContactForm() {
+      var form = document.getElementById("contactForm");
+      var statusEl = document.getElementById("contactFormStatus");
+      if (!form) {
+        return;
+      }
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var fd = new FormData(form);
+        var list = readContactMessages();
+        var contactId = createContactId(list);
+        var payload = {
+          id: contactId,
+          name: String(fd.get("name") || "").trim(),
+          email: String(fd.get("email") || "").trim(),
+          phone: String(fd.get("phone") || "").trim(),
+          subject: String(fd.get("subject") || "").trim(),
+          message: String(fd.get("message") || "").trim(),
+          status: "new",
+          createdAt: new Date().toISOString()
+        };
+
+        if (!payload.name || !payload.email || !payload.subject || !payload.message) {
+          if (statusEl) {
+            statusEl.textContent = "Please fill all required fields.";
+          }
+          return;
+        }
+
+        list.unshift(payload);
+        saveContactMessages(list);
+        form.reset();
+        if (statusEl) {
+          statusEl.textContent = "Thanks. Your message has been sent. Contact ID: " + contactId;
+        }
+      });
+    }
+
+    async function loadPartials() {
+      const navRes = await fetch("../partials/navbar.html");
+      document.getElementById("app-navbar").innerHTML = await navRes.text();
+
+      const footRes = await fetch("../partials/footer.html");
+      document.getElementById("app-footer").innerHTML = await footRes.text();
+
+      const s = document.createElement("script");
+      s.src = "../app.js";
+      s.onload = function () {
+        initNavbar && initNavbar();
+        initAccount && initAccount();
+        initDrawers && initDrawers();
+      };
+      document.body.appendChild(s);
+    }
+
+    bindContactForm();
+    loadPartials();
+  </script>
+</body>
+</html>

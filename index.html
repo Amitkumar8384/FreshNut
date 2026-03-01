@@ -1,0 +1,415 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FreshNut - Premium Dry Fruits</title>
+  <meta name="description" content="Buy premium dry fruits, traditional pickles and healthy Indian sweets online."/>
+  
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg"/>
+  <link rel="alternate icon" type="image/x-icon" href="./favicon.ico"/>
+<link rel="stylesheet" href="./css/style.css"/>
+ <!-- <link rel="stylesheet" href="./css/base.css"> -->
+<link rel="stylesheet" href="./css/navbar.css">
+<link rel="stylesheet" href="./css/home.css">
+<link rel="stylesheet" href="./css/home-premium-layout.css">
+
+<link rel="stylesheet" href="./css/footer.css">
+<link rel="stylesheet" href="./css/product-cat.css">
+<!-- <link rel="stylesheet" href="./css/home-premium.css"> -->
+
+
+
+</head>
+<body class="home-page">
+
+ <header id="app-navbar"></header>
+ 
+
+<!-- 2 -->
+  <section class="hero">
+  <div class="hero-track" id="heroTrack">
+    <div class="hero-slide active" style="background-image:url('.//images/supermarket-banner-concept-with-ingredients.jpg')">
+      <div class="hero-content">
+        <h2>Festive Dry Fruits Collection</h2>
+        <p>Premium quality | Freshly packed</p>
+        
+        <a href="#bestsellersGrid" class="cta">Shop Now</a>
+      </div>
+    </div>
+    <div class="hero-slide" style="background-image:url('./images/top-view-tasty-spicy-chips-white-bowl-sack-cloth-with-pine-nuts-wooden-bowl-with-shelled-sunflower-seeds-with-glass-orange-juice-wooden-table.jpg')">
+      <div class="hero-content">
+        <h2>Traditional Pickles & Sweets</h2>
+        <p>Authentic taste | Limited stock</p>
+        <a href="#bestsellersGrid" class="cta">Explore</a>
+      </div>
+    </div>
+  </div>
+
+  <button class="hero-nav prev" id="heroPrev"><i class="fa-solid fa-chevron-left"></i></button>
+  <button class="hero-nav next" id="heroNext"><i class="fa-solid fa-chevron-right"></i></button>
+</section>
+
+<!-- 3 -->
+ <section class="prod-cats" id="prodCats">
+  <h3 class="sec-title">Explore Categories</h3>
+
+  <div class="pc-grid">
+    <button class="pc-card" data-cat="dryfruits">
+      <img src="https://images.immediate.co.uk/production/volatile/sites/30/2021/02/almonds-9e25ce7.jpg?resize=1366,1366" alt="Dry fruits category">
+      <div class="pc-overlay">
+        <span>Dry Fruits</span>
+        <small>Almonds, Cashews, Raisins</small>
+      </div>
+    </button>
+
+    <button class="pc-card" data-cat="seeds">
+      <img src="./images/5.jpg" alt="Seeds category">
+      <div class="pc-overlay">
+        <span>Seeds</span>
+        <small>Pumpkin, Sunflower</small>
+      </div>
+    </button>
+
+    <button class="pc-card" data-cat="sweets">
+      <img src="./images/sweet.jpg" alt="Sweets category">
+      <div class="pc-overlay">
+        <span>Sweets</span>
+        <small>Kaju Katli, Ladoo</small>
+      </div>
+    </button>
+
+    <button class="pc-card" data-cat="pickles">
+      <img src="./images/pickle.jpg" alt="Pickles category">
+      <div class="pc-overlay">
+        <span>Pickles</span>
+        <small>Mango, Lemon</small>
+      </div>
+    </button>
+
+    <button class="pc-card" data-cat="combos">
+      <img src="./images/combo.jpg" alt="Combo packs category">
+      <div class="pc-overlay">
+        <span>Combo Packs</span>
+        <small>Festive Gift Boxes</small>
+      </div>
+    </button>
+  </div>
+</section>
+<!-- 4 -->
+ <!-- ================= BEST SELLERS (PRO) ================= -->
+<section class="best">
+  <div class="sec-head center">
+    <h3 class="sec-title"><i class="fa-solid fa-fire"></i> Best Sellers</h3>
+  </div>
+<section class="bestsellers" id="bestsellersGrid">
+  <!-- Grid (cards JS se yahin render honge) -->
+  <div class="bs-grid" id="grid-bestsellers"></div>
+</section>
+  <!-- Bottom CTA -->
+  <div class="sec-foot">
+    <a data-route="All Page/view-all-page.html" href="#" class="view-all">Explore Best Sellers</a>
+  </div>
+</section>
+<div class="product-category">
+
+  <section class="cat-section" id="cat-dryfruits">
+    <div class="sec-head center">
+      <h3 class="sec-title">Dry Fruits</h3>
+    </div>
+
+    <div class="bs-grid" id="grid-dryfruits"></div>
+
+    <div class="sec-foot">
+      <a class="view-all" href="./All Page/view-all-page.html?cat=dryfruits">
+        View all
+      </a>
+    </div>
+  </section>
+
+  <section class="cat-section" id="cat-seeds">
+    <div class="sec-head center">
+      <h3 class="sec-title">Seeds</h3>
+    </div>
+
+    <div class="bs-grid" id="grid-seeds"></div>
+
+    <div class="sec-foot">
+      <a class="view-all" href="./All Page/view-all-page.html?cat=seeds">
+        View all
+      </a>
+    </div>
+  </section>
+
+  <section class="cat-section" id="cat-sweets">
+    <div class="sec-head center">
+      <h3 class="sec-title">Sweets</h3>
+    </div>
+
+    <div class="bs-grid" id="grid-sweets"></div>
+
+    <div class="sec-foot">
+      <a class="view-all" href="./All Page/view-all-page.html?cat=sweets">
+        View all
+      </a>
+    </div>
+  </section>
+
+  <section class="cat-section" id="cat-pickles">
+    <div class="sec-head center">
+      <h3 class="sec-title">Pickles</h3>
+    </div>
+
+    <div class="bs-grid" id="grid-pickles"></div>
+
+    <div class="sec-foot">
+      <a class="view-all" href="./All Page/view-all-page.html?cat=pickles">
+        View all
+      </a>
+    </div>
+  </section>
+
+  <section class="cat-section" id="cat-combos">
+    <div class="sec-head center">
+      <h3 class="sec-title">Combo Packs</h3>
+    </div>
+
+    <div class="bs-grid" id="grid-combos"></div>
+
+    <div class="sec-foot">
+      <a class="view-all" href="./All Page/view-all-page.html?cat=combos">
+        View all
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<section class="best" id="recentViewedHome">
+  <div class="sec-head center">
+    <h3 class="sec-title"><i class="fa-solid fa-clock-rotate-left"></i> Recently Viewed</h3>
+  </div>
+  <section class="bestsellers">
+    <div class="bs-grid" id="recentViewedHomeGrid"></div>
+  </section>
+</section>
+
+
+<!-- 0             -->
+ 
+
+ <!-- <section class="bestsellers" id="bestsellersGrid">
+  
+</section> -->
+
+
+<!-- 5 -->
+ <section class="deals" id="dealsSection">
+  <div class="deals-wrap">
+    <div class="deal-banner">
+      <h3><i class="fa-solid fa-fire"></i> Festive Mega Deal</h3>
+      <p>Up to <b>40% OFF</b> on Premium Dry Fruits</p>
+
+      <div class="countdown" id="dealTimer">
+        <div><span id="dDays">00</span><small>Days</small></div>
+        <div><span id="dHours">00</span><small>Hours</small></div>
+        <div><span id="dMins">00</span><small>Mins</small></div>
+        <div><span id="dSecs">00</span><small>Secs</small></div>
+      </div>
+
+      <a href="#bestsellersGrid" class="deal-cta">Shop the Deal</a>
+    </div>
+
+    <div class="deal-side">
+      <div class="deal-mini">
+        <h4><i class="fa-solid fa-gift"></i> Combo Packs</h4>
+        <p>Extra 10% OFF on gift boxes</p>
+      </div>
+      <div class="deal-mini">
+        <h4><i class="fa-solid fa-truck-fast"></i> Free Shipping</h4>
+        <p>On orders above Rs 999</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 6 -->
+ <section class="why-us">
+  <h3 class="sec-title">Why Choose FreshNut</h3>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-ico"><i class="fa-solid fa-leaf"></i></div>
+      <h4>100% Natural</h4>
+      <p>No preservatives. Pure, authentic taste.</p>
+    </div>
+
+    <div class="why-card">
+      <div class="why-ico"><i class="fa-solid fa-truck"></i></div>
+      <h4>Fast Delivery</h4>
+      <p>Pan-India shipping in 2-4 days.</p>
+    </div>
+
+    <div class="why-card">
+      <div class="why-ico"><i class="fa-solid fa-lock"></i></div>
+      <h4>Secure Payments</h4>
+      <p>UPI, Cards, COD supported.</p>
+    </div>
+
+    <div class="why-card">
+      <div class="why-ico"><i class="fa-solid fa-star"></i></div>
+      <h4>5-Star Rated</h4>
+      <p>Loved by 10,000+ customers.</p>
+    </div>
+  </div>
+</section>
+<!-- 7 -->
+ <div class="ts-dots" id="tsDots"></div>
+
+<section class="testimonials" id="testimonials">
+  <h3 class="sec-title">What Our Customers Say</h3>
+
+  <div class="ts-wrap">
+    <button class="ts-nav prev" id="tsPrev"><i class="fa-solid fa-chevron-left"></i></button>
+
+    <div class="ts-track" id="tsTrack">
+      <!-- Real reviews JS se render honge -->
+    </div>
+
+    <button class="ts-nav next" id="tsNext"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+</section>
+
+<!-- 8 -->
+ <section class="cta-news">
+  <div class="cta-wrap">
+    <div class="cta-left">
+      <h3><i class="fa-solid fa-tag"></i> Get 10% OFF on Your First Order</h3>
+      <p>Subscribe for festive deals, new arrivals & exclusive coupons.</p>
+
+      <form id="newsForm" class="news-form">
+        <input type="email" id="newsEmail" placeholder="Enter your email" required />
+        <button type="submit">Get Coupon</button>
+      </form>
+      <small class="cta-note">No spam. Unsubscribe anytime.</small>
+    </div>
+
+    <div class="cta-right">
+      <div class="wa-card">
+        <h4>Need help ordering?</h4>
+        <p>Chat with us on WhatsApp for quick support.</p>
+        <a class="wa-btn" href="https://wa.me/919000000000?text=Hello%20I%20want%20to%20order" target="_blank" rel="noopener noreferrer">
+           <i class="fa-brands fa-whatsapp" ></i> Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 9 -->
+ <section class="pay-strip">
+  <div class="pay-wrap">
+    <div class="pay-left">
+      <h4>Secure Payments</h4>
+      <div class="pay-icons">
+        <div class="brand-chip pay-chip">
+          <img src="https://dummyimage.com/56x32/ffffff/7a1f1f&text=UPI" alt="UPI" />
+          <span>UPI</span>
+        </div>
+        <div class="brand-chip pay-chip">
+          <img src="https://logo.clearbit.com/visa.com" alt="Visa" />
+          <span>Visa</span>
+        </div>
+        <div class="brand-chip pay-chip">
+          <img src="https://logo.clearbit.com/mastercard.com" alt="Mastercard" />
+          <span>MasterCard</span>
+        </div>
+        <div class="brand-chip pay-chip">
+          <img src="https://dummyimage.com/56x32/ffffff/7a1f1f&text=RuPay" alt="RuPay" />
+          <span>RuPay</span>
+        </div>
+        <div class="brand-chip pay-chip">
+          <img src="https://dummyimage.com/56x32/ffffff/7a1f1f&text=COD" alt="Cash on Delivery" />
+          <span>COD</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pay-right">
+      <h4>Fast Delivery Partners</h4>
+      <div class="pay-icons">
+        <div class="brand-chip ship-chip">
+          <img src="../Final project 1/images/blue-dart-express-seeklogo.png" alt="Delhivery" />
+          <span>Delhivery</span>
+        </div>
+        <div class="brand-chip ship-chip">
+          <img src="./images/blue-dart-express-seeklogo.png" alt="BlueDart" />
+          <span>BlueDart</span>
+        </div>
+        <div class="brand-chip ship-chip">
+          <img src="https://logo.clearbit.com/ekartlogistics.com" alt="Ekart" />
+          <span>Ekart</span>
+        </div>
+        <div class="brand-chip ship-chip">
+          <img src="https://logo.clearbit.com/dtdc.in" alt="DTDC" />
+          <span>DTDC</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<a href="https://wa.me/919000000000?text=Hello%20I%20want%20to%20order" 
+   class="wa-float" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   aria-label="Chat on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<button id="backToTop" class="back-top" aria-label="Back to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+
+
+<footer id="app-footer"></footer>
+<script>
+  async function loadPartials(){
+    const navRes = await fetch("./partials/navbar.html");
+    document.getElementById("app-navbar").innerHTML = await navRes.text();
+
+    const footRes = await fetch("./partials/footer.html");
+    document.getElementById("app-footer").innerHTML = await footRes.text();
+
+    const s = document.createElement("script");
+    s.src = "./app.js";
+    s.onload = () => {
+      initNavbar?.();
+      initAccount?.();
+      initDrawers?.();
+      initHero?.();
+      bootHomePage?.();
+      initTestimonials?.();
+
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+      window.scrollTo(0, 0);
+    };
+    document.body.appendChild(s);
+  }
+  loadPartials();
+</script>
+
+  <script src="./js/product-cat.js"></script>
+ 
+  <script src="./js/comment.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout - FreshNut</title>
+  <link rel="stylesheet" href="../css/navbar.css"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="stylesheet" href="../css/footer.css" />
+  <link rel="stylesheet" href="checkout.css"/>
+</head>
+<body>
+  <header id="app-navbar"></header>
+
+  <header class="ck-nav">
+    <a href="../index.html" class="ck-back">Back to Shop</a>
+    <h2>Checkout</h2>
+  </header>
+
+  <main class="ck-wrap">
+    <section class="ck-left">
+      <h3>Delivery Address</h3>
+      <div class="saved-address-bar">
+        <select id="savedAddressSelect">
+          <option value="">Use Saved Address</option>
+        </select>
+        <button id="saveCurrentAddress" type="button">Save Address</button>
+        <button id="deleteSavedAddress" type="button">Delete</button>
+      </div>
+      <form id="checkoutForm" class="ck-form">
+        <div class="grid">
+          <label class="sr-only" for="fullName">Full Name</label>
+          <input id="fullName" type="text" placeholder="Full Name" required />
+          <label class="sr-only" for="phone">Phone Number</label>
+          <input id="phone" type="tel" placeholder="Phone Number" required />
+        </div>
+        <label class="sr-only" for="email">Email</label>
+        <input id="email" type="email" placeholder="Email" required readonly />
+        <label class="sr-only" for="address">Address Line</label>
+        <input id="address" type="text" placeholder="Address Line" required />
+        <div class="grid">
+          <label class="sr-only" for="city">City</label>
+          <input id="city" type="text" placeholder="City" required />
+          <label class="sr-only" for="state">State</label>
+          <input id="state" type="text" placeholder="State" required />
+        </div>
+        <div class="grid">
+          <label class="sr-only" for="pincode">Pincode</label>
+          <input id="pincode" type="text" placeholder="Pincode" required />
+          <label class="sr-only" for="landmark">Landmark</label>
+          <input id="landmark" type="text" placeholder="Landmark (optional)" />
+        </div>
+
+        <h3>Payment Method</h3>
+        <div class="pay-methods">
+          <label><input type="radio" name="pay" value="UPI" checked /> UPI</label>
+          <label><input type="radio" name="pay" value="Card" /> Card</label>
+          <label><input type="radio" name="pay" value="Cash on Delivery" /> Cash on Delivery</label>
+        </div>
+
+        <div id="upiFields" class="pay-detail">
+          <label class="sr-only" for="upiId">UPI ID</label>
+          <input id="upiId" type="text" placeholder="UPI ID (example@upi)" />
+        </div>
+
+        <div id="cardFields" class="pay-detail" style="display:none">
+          <label class="sr-only" for="cardNumber">Card Number</label>
+          <input id="cardNumber" type="text" placeholder="Card Number (16 digits)" maxlength="19" />
+          <div class="grid">
+            <label class="sr-only" for="cardName">Card Holder Name</label>
+            <input id="cardName" type="text" placeholder="Card Holder Name" />
+            <label class="sr-only" for="cardExpiry">Card Expiry</label>
+            <input id="cardExpiry" type="text" placeholder="MM/YY" maxlength="5" />
+          </div>
+          <label class="sr-only" for="cardCvv">Card CVV</label>
+          <input id="cardCvv" type="password" placeholder="CVV" maxlength="3" />
+        </div>
+
+        <button type="submit" class="place-btn">Place Order</button>
+      </form>
+    </section>
+
+    <aside class="ck-right">
+      <h3>Order Summary</h3>
+      <ul id="ckItems" class="ck-items"></ul>
+
+      <div class="coupon-row">
+        <label class="sr-only" for="couponCode">Coupon Code</label>
+        <input id="couponCode" type="text" placeholder="Coupon code" />
+        <button id="applyCoupon" type="button">Apply</button>
+      </div>
+      <div id="couponHints" class="coupon-hints"></div>
+      <small id="couponMsg" class="coupon-msg"></small>
+
+      <div class="ck-total">
+        <div><span>Subtotal</span><b id="ckSub">Rs 0</b></div>
+        <div><span>Discount</span><b id="ckDiscount">Rs 0</b></div>
+        <div><span>Shipping</span><b id="ckShip">Rs 0</b></div>
+        <div class="grand"><span>Total</span><b id="ckTotal">Rs 0</b></div>
+      </div>
+    </aside>
+  </main>
+
+  <footer id="app-footer"></footer>
+
+  <script>
+    async function loadPartials(){
+      const navRes = await fetch("../partials/navbar.html");
+      document.getElementById("app-navbar").innerHTML = await navRes.text();
+
+      const footRes = await fetch("../partials/footer.html");
+      document.getElementById("app-footer").innerHTML = await footRes.text();
+
+      const s = document.createElement("script");
+      s.src = "../app.js";
+      s.onload = () => {
+        window.initNavbar?.();
+        window.initAccount?.();
+        window.initDrawers?.();
+      };
+      document.body.appendChild(s);
+    }
+
+    loadPartials();
+  </script>
+
+  <script src="checkout.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --acc-bg: linear-gradient(180deg, #fffaf3, #ffffff);
+  --acc-text: #1f2933;
+  --acc-card-bg: #ffffff;
+  --acc-border: #fde68a;
+  --acc-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  --acc-heading: #7a1f1f;
+  --acc-muted: #6b7280;
+  --acc-label: #374151;
+  --acc-field-bg: #ffffff;
+  --acc-field-border: #e5e7eb;
+  --acc-focus-ring: rgba(245, 158, 11, 0.15);
+  --acc-summary-border: #f59e0b;
+  --acc-soft-bg: #fffaf3;
+}
+
+body {
+  background: var(--acc-bg);
+  color: var(--acc-text);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+body.dark-mode {
+  --acc-bg: linear-gradient(180deg, #141414, #1b1b1b);
+  --acc-text: #f5f5f5;
+  --acc-card-bg: #232323;
+  --acc-border: #3a3a3a;
+  --acc-shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
+  --acc-heading: #ffd27a;
+  --acc-muted: #b4b4b4;
+  --acc-label: #e0e0e0;
+  --acc-field-bg: #171717;
+  --acc-field-border: #4a4a4a;
+  --acc-focus-ring: rgba(245, 158, 11, 0.28);
+  --acc-summary-border: #d48a00;
+  --acc-soft-bg: #2b2b2b;
+}
+
+.account-wrap-page {
+  max-width: 1100px;
+  margin: 32px auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 18px;
+}
+
+.account-card {
+  background: var(--acc-card-bg);
+  border: 1px solid var(--acc-border);
+  border-radius: 18px;
+  box-shadow: var(--acc-shadow);
+  padding: 20px;
+}
+
+.account-card h1,
+.account-card h2 {
+  color: var(--acc-heading);
+  margin-bottom: 6px;
+}
+
+.muted {
+  color: var(--acc-muted);
+  margin-bottom: 14px;
+}
+
+.account-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.account-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--acc-label);
+}
+
+.account-form .full {
+  grid-column: 1 / -1;
+}
+
+.account-form input,
+.account-form textarea {
+  width: 100%;
+  border: 1px solid var(--acc-field-border);
+  background: var(--acc-field-bg);
+  color: var(--acc-text);
+  border-radius: 10px;
+  padding: 10px 12px;
+  outline: none;
+}
+
+.account-form input:focus,
+.account-form textarea:focus {
+  border-color: var(--acc-summary-border);
+  box-shadow: 0 0 0 3px var(--acc-focus-ring);
+}
+
+.account-form input:focus-visible,
+.account-form textarea:focus-visible,
+.address-add-row input:focus-visible {
+  outline: 2px solid var(--acc-summary-border);
+  outline-offset: 1px;
+}
+
+.primary-btn,
+.link-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 11px 16px;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.primary-btn {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #7a1f1f, #b45309);
+  color: #fff7ed;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin: 12px 0 18px;
+}
+
+.summary-grid article {
+  border: 1px dashed var(--acc-summary-border);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.summary-grid h4 {
+  font-size: 12px;
+  color: var(--acc-muted);
+}
+
+.summary-grid p {
+  margin-top: 4px;
+  color: var(--acc-heading);
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.addresses-card {
+  grid-column: 1 / -1;
+}
+
+.address-add-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.address-add-row input {
+  border: 1px solid var(--acc-field-border);
+  background: var(--acc-field-bg);
+  color: var(--acc-text);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.saved-address-list {
+  display: grid;
+  gap: 10px;
+}
+
+.saved-address-item {
+  border: 1px solid var(--acc-border);
+  border-radius: 12px;
+  padding: 10px;
+  background: var(--acc-soft-bg);
+}
+
+.saved-address-item h4 {
+  color: var(--acc-heading);
+  font-size: 14px;
+}
+
+.saved-address-item p {
+  color: var(--acc-label);
+  font-size: 13px;
+  margin-top: 3px;
+}
+
+.saved-address-actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+}
+
+.saved-address-actions button {
+  border: 1px solid var(--acc-summary-border);
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: var(--acc-field-bg);
+  color: var(--acc-heading);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.link-btn {
+  width: 100%;
+  background: var(--acc-soft-bg);
+  color: var(--acc-heading);
+  border: 1px solid var(--acc-summary-border);
+}
+
+@media (max-width: 920px) {
+  .account-wrap-page {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .account-form {
+    grid-template-columns: 1fr;
+  }
+
+  .address-add-row {
+    grid-template-columns: 1fr;
+  }
+}

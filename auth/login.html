@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login / Signup - FreshNut</title>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Global + Page CSS -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="./login.css" />
+  <!-- Navbar / Footer CSS -->
+  <link rel="stylesheet" href="../css/navbar.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header id="app-navbar"></header>
+
+  <!-- AUTH CARD -->
+  <main class="auth-wrap">
+    <div class="auth-card">
+      <h2 id="title">Login</h2>
+
+      <input id="name" type="text" placeholder="Full Name (Signup only)" class="hide" />
+      <input id="email" type="email" placeholder="Email address" />
+      <input id="password" type="password" placeholder="Password" />
+
+      <button id="submitBtn">Login</button>
+
+      <p class="toggle">
+        New here?
+        <span id="toggleMode">Create account</span>
+      </p>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="app-footer"></footer>
+
+  <!-- Load Navbar/Footer + app.js AFTER partials -->
+  <script>
+    async function loadPartials(){
+      const navRes = await fetch("../partials/navbar.html");
+      document.getElementById("app-navbar").innerHTML = await navRes.text();
+
+      const footRes = await fetch("../partials/footer.html");
+      document.getElementById("app-footer").innerHTML = await footRes.text();
+
+      const s = document.createElement("script");
+      s.src = "../app.js";
+      s.onload = () => {
+        window.initNavbar?.();
+        window.initAccount?.();
+        window.initDrawers?.();
+      };
+      document.body.appendChild(s);
+    }
+    loadPartials();
+  </script>
+
+  <!-- Page JS -->
+  <script src="./login.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FreshNut Admin</title>
+  <link rel="stylesheet" href="../css/navbar.css"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="stylesheet" href="../css/footer.css"/>
+<link rel="stylesheet" href="../css/home-premium-layout.css">
+
+  <link rel="stylesheet" href="./admin.css">
+</head>
+<body class="admin-page">
+  <header id="app-navbar"></header>
+
+  <div class="admin-nav">
+    <h1>FreshNut Admin Dashboard</h1>
+    <div>
+      <button id="exportBtn" type="button">Export JSON</button>
+      <label>
+        Import JSON
+        <input id="importInput" type="file" accept="application/json" hidden>
+      </label>
+    </div>
+  </div>
+
+  <nav class="admin-tabs" aria-label="Admin sections">
+    <button type="button" class="admin-tab active" data-admin-tab="overview">Overview</button>
+    <button type="button" class="admin-tab" data-admin-tab="coupons">Coupons</button>
+    <button type="button" class="admin-tab" data-admin-tab="products">Products</button>
+    <button type="button" class="admin-tab" data-admin-tab="users">Users</button>
+    <button type="button" class="admin-tab" data-admin-tab="orders">Orders</button>
+    <button type="button" class="admin-tab" data-admin-tab="comments">Comments</button>
+    <button type="button" class="admin-tab" data-admin-tab="contacts">Contacts</button>
+  </nav>
+
+  <main class="admin-wrap">
+    <section class="card stats-card admin-panel panel-overview" data-admin-panel="overview">
+      <h2>Inventory Summary</h2>
+      <div class="stats-grid">
+        <article>
+          <h4>Active Products</h4>
+          <p id="statsProducts">0</p>
+        </article>
+        <article>
+          <h4>Inventory Value</h4>
+          <p id="statsValue">Rs 0</p>
+        </article>
+        <article>
+          <h4>Low Stock</h4>
+          <p id="statsLowStock">0</p>
+        </article>
+        <article>
+          <h4>Draft Products</h4>
+          <p id="statsDrafts">0</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="card stats-card admin-panel panel-coupons" data-admin-panel="coupons" hidden>
+      <h2>Coupon Management</h2>
+      <form id="couponForm" class="coupon-form">
+        <input type="hidden" id="cId" />
+        <input id="cCode" placeholder="Code (example: WELCOME10)" required />
+        <select id="cType">
+          <option value="percent">Percent</option>
+          <option value="flat">Flat</option>
+        </select>
+        <input id="cValue" type="number" placeholder="Value" required />
+        <input id="cMin" type="number" placeholder="Minimum Order" required />
+        <input id="cMax" type="number" placeholder="Max Discount (optional)" />
+        <label class="coupon-active">
+          <input id="cActive" type="checkbox" checked />
+          Active
+        </label>
+        <button class="primary" type="submit">Save Coupon</button>
+        <button class="ghost" type="button" id="couponCancel" hidden>Cancel Edit</button>
+      </form>
+      <div id="couponList" class="coupon-list"></div>
+    </section>
+
+    <section class="card admin-panel panel-products product-editor" data-admin-panel="products" hidden>
+      <h2 id="formTitle">Add Product</h2>
+      <form id="productForm">
+        <input type="hidden" id="pId"/>
+        <input id="pTitle" placeholder="Title" required/>
+        <input id="pPrice" type="number" placeholder="Price" required/>
+        <input id="pOld" type="number" placeholder="Old Price"/>
+        <input id="pDiscount" type="number" placeholder="Discount %"/>
+        <input id="pStock" type="number" placeholder="Stock" required/>
+        <select id="pStatus">
+          <option value="active">Active</option>
+          <option value="draft">Draft</option>
+        </select>
+        <select id="pCat">
+          <option value="dryfruits">Dry Fruits</option>
+          <option value="seeds">Seeds</option>
+          <option value="sweets">Sweets</option>
+          <option value="pickles">Pickles</option>
+          <option value="combos">Combos</option>
+        </select>
+        <input id="pImgFile" type="file" accept="image/*" multiple/>
+        <small>Upload minimum 3 images for product detail gallery.</small>
+        <textarea id="pDesc" placeholder="Description"></textarea>
+        <textarea id="pLongDesc" placeholder="Long Description (detailed)"></textarea>
+        <textarea id="pGallery" placeholder="Gallery URLs (comma separated)"></textarea>
+        <textarea id="pHighlights" placeholder="Highlights (comma separated)"></textarea>
+        <textarea id="pIngredients" placeholder="Ingredients (comma separated)"></textarea>
+        <input id="pWeight" placeholder="Weight (example: 500g)" />
+        <input id="pOrigin" placeholder="Origin (example: India)" />
+        <input id="pShelfLife" placeholder="Shelf Life (example: 6 months)" />
+        <input id="pPackType" placeholder="Pack Type (example: Sealed pouch)" />
+        <img id="imgPreview" style="max-width:100%;border-radius:12px;display:none" alt="Preview"/>
+        <button class="primary" type="submit">Save Product</button>
+        <button type="button" id="cancelEdit" class="ghost" hidden>Cancel Edit</button>
+      </form>
+    </section>
+
+    <section class="card admin-panel panel-products product-list" data-admin-panel="products" hidden>
+      <div class="toolbar">
+        <input id="search" placeholder="Search..."/>
+        <select id="filterCat">
+          <option value="">All Cats</option>
+          <option value="dryfruits">Dry Fruits</option>
+          <option value="seeds">Seeds</option>
+          <option value="sweets">Sweets</option>
+          <option value="pickles">Pickles</option>
+          <option value="combos">Combos</option>
+        </select>
+        <select id="filterStatus">
+          <option value="">All Status</option>
+          <option value="active">Active</option>
+          <option value="draft">Draft</option>
+        </select>
+        <select id="sortBy">
+          <option value="new">Newest</option>
+          <option value="price">Price</option>
+          <option value="discount">Discount</option>
+        </select>
+        <button id="bulkDelete" type="button">Delete Selected</button>
+      </div>
+      <div id="adminList" class="admin-list"></div>
+    </section>
+
+    <section class="card stats-card admin-panel panel-users" data-admin-panel="users" hidden>
+      <h2>User Details</h2>
+      <div class="meta-head-actions">
+        <button id="exportUsersCsv" type="button">Export Users CSV</button>
+      </div>
+      <div class="meta-toolbar">
+        <input id="userSearch" placeholder="Search user by name/email" />
+        <select id="userSort">
+          <option value="newest">Sort: Newest</option>
+          <option value="name_asc">Name A-Z</option>
+          <option value="name_desc">Name Z-A</option>
+          <option value="email_asc">Email A-Z</option>
+          <option value="role">Role</option>
+        </select>
+        <select id="userRoleFilter">
+          <option value="">All Roles</option>
+          <option value="user">user</option>
+          <option value="admin">admin</option>
+        </select>
+      </div>
+      <div id="userList" class="meta-list"></div>
+      <div id="userPagination" class="meta-pagination"></div>
+    </section>
+
+    <section class="card stats-card admin-panel panel-orders" data-admin-panel="orders" hidden>
+      <h2>Order Details</h2>
+      <div class="meta-head-actions">
+        <button id="exportOrdersCsv" type="button">Export Orders CSV</button>
+      </div>
+      <div class="meta-toolbar">
+        <input id="orderSearchAdmin" placeholder="Search order id / customer / email" />
+        <select id="orderSort">
+          <option value="newest">Sort: Newest</option>
+          <option value="oldest">Sort: Oldest</option>
+          <option value="total_desc">Total High-Low</option>
+          <option value="total_asc">Total Low-High</option>
+          <option value="customer">Customer A-Z</option>
+        </select>
+        <select id="orderStatusAdminFilter">
+          <option value="">All Status</option>
+          <option value="placed">placed</option>
+          <option value="processing">processing</option>
+          <option value="shipped">shipped</option>
+          <option value="delivered">delivered</option>
+          <option value="cancelled">cancelled</option>
+          <option value="return_requested">return_requested</option>
+        </select>
+      </div>
+      <div id="orderList" class="meta-list"></div>
+      <div id="orderPagination" class="meta-pagination"></div>
+    </section>
+
+    <section class="card stats-card admin-panel panel-comments" data-admin-panel="comments" hidden>
+      <h2>Comment Details</h2>
+      <div class="meta-head-actions">
+        <button id="exportCommentsCsv" type="button">Export Comments CSV</button>
+      </div>
+      <div class="meta-toolbar">
+        <input id="commentSearch" placeholder="Search comment / product / reviewer" />
+        <select id="commentSort">
+          <option value="newest">Sort: Newest</option>
+          <option value="oldest">Sort: Oldest</option>
+          <option value="rating_desc">Rating High-Low</option>
+          <option value="rating_asc">Rating Low-High</option>
+          <option value="product">Product A-Z</option>
+        </select>
+        <select id="commentRatingFilter">
+          <option value="">All Ratings</option>
+          <option value="5">5 stars</option>
+          <option value="4">4 stars</option>
+          <option value="3">3 stars</option>
+          <option value="2">2 stars</option>
+          <option value="1">1 star</option>
+        </select>
+      </div>
+      <div id="commentList" class="meta-list"></div>
+      <div id="commentPagination" class="meta-pagination"></div>
+    </section>
+
+    <section class="card stats-card admin-panel panel-contacts" data-admin-panel="contacts" hidden>
+      <h2>Contact Messages</h2>
+      <div class="meta-head-actions">
+        <button id="exportContactsCsv" type="button">Export Contacts CSV</button>
+      </div>
+      <div class="meta-toolbar">
+        <input id="contactSearch" placeholder="Search by name / email / phone / message" />
+        <select id="contactSubjectFilter">
+          <option value="">All Subjects</option>
+          <option value="Order support">Order support</option>
+          <option value="Product inquiry">Product inquiry</option>
+          <option value="Wholesale or bulk">Wholesale or bulk</option>
+          <option value="Feedback">Feedback</option>
+        </select>
+        <select id="contactStatusFilter">
+          <option value="">All Status</option>
+          <option value="new">new</option>
+          <option value="in_progress">in_progress</option>
+          <option value="resolved">resolved</option>
+        </select>
+        <select id="contactSort">
+          <option value="newest">Sort: Newest</option>
+          <option value="oldest">Sort: Oldest</option>
+          <option value="name">Name A-Z</option>
+          <option value="subject">Subject A-Z</option>
+        </select>
+      </div>
+      <div id="contactList" class="meta-list"></div>
+      <div id="contactPagination" class="meta-pagination"></div>
+    </section>
+  </main>
+
+  <footer id="app-footer"></footer>
+
+  <script>
+    async function loadPartials(){
+      const navRes = await fetch("../partials/navbar.html");
+      document.getElementById("app-navbar").innerHTML = await navRes.text();
+
+      const footRes = await fetch("../partials/footer.html");
+      document.getElementById("app-footer").innerHTML = await footRes.text();
+
+      const s = document.createElement("script");
+      s.src = "../app.js";
+      s.onload = () => {
+        window.initNavbar?.();
+        window.initAccount?.();
+        window.initDrawers?.();
+      };
+      document.body.appendChild(s);
+    }
+
+    loadPartials();
+  </script>
+
+  <script src="./admin.js"></script>
+</body>
+</html>

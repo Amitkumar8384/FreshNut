@@ -1,0 +1,209 @@
+.home-page {
+  background:
+    radial-gradient(900px 360px at 10% -8%, rgba(255, 245, 224, 0.42), transparent 64%),
+    radial-gradient(800px 340px at 92% -10%, rgba(254, 215, 170, 0.2), transparent 62%),
+    linear-gradient(180deg, #fffaf3 0%, #fff 100%);
+}
+
+.home-page .sec-title {
+  font-size: 30px;
+  letter-spacing: 0.02em;
+}
+
+.home-page .hero {
+  max-width: 1240px;
+  margin: 16px auto 0;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.24);
+  border: 1px solid rgba(245, 158, 11, 0.28);
+}
+
+.home-page .hero-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, rgba(40, 18, 9, 0.72), rgba(40, 18, 9, 0.24));
+  pointer-events: none;
+}
+
+.home-page .hero-content {
+  z-index: 1;
+  max-width: 560px;
+}
+
+.home-page .hero-nav {
+  z-index: 7;
+}
+
+.home-page .hero-content h2 {
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.1;
+}
+
+.home-page .hero-content p {
+  font-size: 16px;
+  opacity: 0.95;
+}
+
+.home-page .cta,
+.home-page .deal-cta,
+.home-page .view-all {
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-weight: 800;
+}
+
+.home-page .prod-cats,
+.home-page .best,
+.home-page .deals,
+.home-page .why-us,
+.home-page .testimonials,
+.home-page .cta-news,
+.home-page .pay-strip {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.home-page .pc-grid,
+.home-page .bs-grid,
+.home-page .why-grid,
+.home-page .pay-wrap,
+.home-page .deals-wrap,
+.home-page .cta-wrap {
+  max-width: 1240px;
+}
+
+.home-page .pc-card,
+.home-page .bs-card,
+.home-page .why-card,
+.home-page .ts-card {
+  border-radius: 20px;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.14);
+}
+
+.home-page .pc-card:hover,
+.home-page .bs-card:hover,
+.home-page .why-card:hover {
+  transform: translateY(-5px);
+}
+
+.home-page .bs-img img {
+  height: 250px;
+}
+
+.home-page .bs-info {
+  padding: 16px;
+}
+
+.home-page .bs-info h4 {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.home-page .bs-desc {
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.home-page .bs-price .new {
+  font-size: 20px;
+}
+
+.home-page .deals-wrap {
+  gap: 16px;
+}
+
+.home-page .deal-banner {
+  border-radius: 24px;
+}
+
+.home-page .deal-mini {
+  border-radius: 16px;
+}
+
+.home-page .why-card {
+  padding: 24px 18px;
+}
+
+.home-page .testimonials .sec-title {
+  margin-bottom: 20px;
+}
+
+.home-page .ts-wrap {
+  max-width: 980px;
+}
+
+.home-page .ts-card {
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  background: linear-gradient(180deg, #fff, #fffaf2);
+}
+
+.home-page .cta-left,
+.home-page .wa-card {
+  border-radius: 22px;
+}
+
+.home-page .pay-strip {
+  border-top: 0;
+}
+
+@media (max-width: 1024px) {
+  .home-page .hero {
+    margin: 12px 12px 0;
+    border-radius: 20px;
+  }
+
+  .home-page .sec-title {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-page .hero {
+    margin: 10px 10px 0;
+    border-radius: 16px;
+  }
+
+  .home-page .hero-content h2 {
+    font-size: 24px;
+  }
+
+  .home-page .hero-content p {
+    font-size: 14px;
+  }
+
+  .home-page .bs-img img {
+    height: 190px;
+  }
+}
+
+@media (max-width: 520px) {
+  .home-page .sec-title {
+    font-size: 22px;
+  }
+
+  .home-page .prod-cats,
+  .home-page .best,
+  .home-page .deals,
+  .home-page .why-us,
+  .home-page .testimonials,
+  .home-page .cta-news,
+  .home-page .pay-strip {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .home-page .bs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .home-page .bs-img img {
+    height: 150px;
+  }
+
+  .home-page .bs-info {
+    padding: 12px;
+  }
+}

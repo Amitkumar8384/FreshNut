@@ -1,0 +1,20 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="FreshNut">
+  <defs>
+    <linearGradient id="nutGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f7b54a"/>
+      <stop offset="55%" stop-color="#d47a22"/>
+      <stop offset="100%" stop-color="#7a3a16"/>
+    </linearGradient>
+    <linearGradient id="leafGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#b6dc4d"/>
+      <stop offset="100%" stop-color="#4f8a1f"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="18" ry="4" fill="#000" opacity=".15"/>
+  <path d="M32 4C22 10 14 21 14 36c0 14 8 24 18 24s18-10 18-24C50 21 42 10 32 4z" fill="url(#nutGrad)" stroke="#3a190a" stroke-width="2"/>
+  <path d="M32 9c-7 7-12 16-12 28 0 11 5 18 12 18s12-7 12-18C44 25 39 16 32 9z" fill="none" stroke="#ffd78d" stroke-width="1.5" opacity=".6"/>
+  <path d="M34 15c-3 6-4 14-4 22 0 6 1 11 3 15" fill="none" stroke="#8f3f16" stroke-width="2" stroke-linecap="round"/>
+  <path d="M44 18c8 0 13 4 14 12-8 1-14-2-16-9z" fill="url(#leafGrad)" stroke="#2f5f14" stroke-width="1.5"/>
+  <path d="M48 20c7 1 11 4 12 10-6 1-10-1-12-6z" fill="none" stroke="#d9ef8a" stroke-width="1"/>
+  <ellipse cx="26" cy="22" rx="3" ry="7" fill="#fff" opacity=".65" transform="rotate(35 26 22)"/>
+</svg>

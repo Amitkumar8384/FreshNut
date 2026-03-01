@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FreshNut - All Products</title>
+  
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/footer.css">
+
+<link rel="stylesheet" href="./all-page.css">
+
+
+
+</head>
+<body>
+
+<header id="app-navbar"></header>
+
+
+<main class="ap-page">
+  <section class="ap-hero">
+    <p class="ap-kicker">FreshNut Collection</p>
+    <h1 id="pageTitle">All Products</h1>
+    <p id="pageSubtitle" class="ap-subtitle">Discover premium picks across dry fruits, seeds, sweets, pickles and combos.</p>
+  </section>
+
+  <section class="ap-toolbar">
+    <div class="filters">
+      <select id="filterCat">
+        <option value="">All Categories</option>
+        <option value="dryfruits">Dry Fruits</option>
+        <option value="seeds">Seeds</option>
+        <option value="sweets">Sweets</option>
+        <option value="pickles">Pickles</option>
+        <option value="combos">Combos</option>
+      </select>
+
+      <input id="searchInput" type="search" placeholder="Search products..." />
+      <select id="sortBy" aria-label="Sort products">
+        <option value="featured">Sort: Featured</option>
+        <option value="priceAsc">Price: Low to High</option>
+        <option value="priceDesc">Price: High to Low</option>
+        <option value="ratingDesc">Rating: High to Low</option>
+        <option value="nameAsc">Name: A to Z</option>
+      </select>
+    </div>
+  </section>
+
+  <section id="productsGrid" class="products-grid"></section>
+
+  <section class="cat-group" id="recentViewedBlock">
+    <h3 class="cat-group-title">Recently Viewed</h3>
+    <div class="bs-grid" id="recentViewedGrid"></div>
+  </section>
+</main>
+  <footer id="app-footer"></footer>
+
+<script>
+  async function loadPartials(){
+    const navRes = await fetch("../partials/navbar.html");
+    document.getElementById("app-navbar").innerHTML = await navRes.text();
+
+    const footRes = await fetch("../partials/footer.html");
+    document.getElementById("app-footer").innerHTML = await footRes.text();
+
+    const s = document.createElement("script");
+    s.src = "../app.js";
+    s.onload = () => {
+      window.initNavbar?.();
+      window.initAccount?.();
+      window.initDrawers?.();
+
+      // Load view.js after app.js
+      const v = document.createElement("script");
+      v.src = "../js/view.js";
+      document.body.appendChild(v);
+    };
+    document.body.appendChild(s);
+  }
+  loadPartials();
+</script>
+
+</body>
+</html>
+

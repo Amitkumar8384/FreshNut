@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - FreshNut</title>
+  <meta name="description" content="Learn about FreshNut, our story, sourcing standards, and commitment to quality." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/navbar.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <link rel="stylesheet" href="../about/about.css" />
+  <link rel="stylesheet" href="../css/style.css">
+
+</head>
+<body>
+  <header id="app-navbar"></header>
+
+  <main class="about-page">
+    <section class="about-hero">
+      <p class="about-kicker">About FreshNut</p>
+      <h1>Traditional Taste, Modern Quality</h1>
+      <p>
+        FreshNut was built to bring premium dry fruits, authentic pickles, and festive sweets to your home with
+        trusted quality and consistent freshness.
+      </p>
+    </section>
+
+    <section class="about-grid">
+      <article class="about-card">
+        <h2>Our Story</h2>
+        <p>
+          What started as a small family-led sourcing initiative is now a growing online brand focused on honest
+          ingredients and transparent quality standards.
+        </p>
+      </article>
+      <article class="about-card">
+        <h2>Our Promise</h2>
+        <p>
+          Every pack is checked for freshness, packed hygienically, and delivered with care. We prioritize taste,
+          consistency, and value in every order.
+        </p>
+      </article>
+      <article class="about-card">
+        <h2>How We Source</h2>
+        <p>
+          We work with trusted suppliers and regional makers to ensure reliable quality across dry fruits, seeds,
+          sweets, and pickles.
+        </p>
+      </article>
+    </section>
+
+    <section class="about-metrics">
+      <div class="metric">
+        <strong>10,000+</strong>
+        <span>Happy Customers</span>
+      </div>
+      <div class="metric">
+        <strong>50+</strong>
+        <span>Curated Products</span>
+      </div>
+      <div class="metric">
+        <strong>2-4 Days</strong>
+        <span>Pan-India Delivery</span>
+      </div>
+      <div class="metric">
+        <strong>100%</strong>
+        <span>Freshness Focus</span>
+      </div>
+    </section>
+
+    <section class="about-values">
+      <h2>What We Value</h2>
+      <ul>
+        <li><i class="fa-solid fa-circle-check"></i> Clean ingredients and authentic flavor</li>
+        <li><i class="fa-solid fa-circle-check"></i> Secure payments and reliable support</li>
+        <li><i class="fa-solid fa-circle-check"></i> Fast fulfilment with careful packaging</li>
+      </ul>
+      <a class="about-cta" href="../All Page/view-all-page.html">Explore Products</a>
+    </section>
+  </main>
+
+  <footer id="app-footer"></footer>
+
+  <script>
+    async function loadPartials() {
+      const navRes = await fetch("../partials/navbar.html");
+      document.getElementById("app-navbar").innerHTML = await navRes.text();
+
+      const footRes = await fetch("../partials/footer.html");
+      document.getElementById("app-footer").innerHTML = await footRes.text();
+
+      const s = document.createElement("script");
+      s.src = "../app.js";
+      s.onload = function () {
+        initNavbar && initNavbar();
+        initAccount && initAccount();
+        initDrawers && initDrawers();
+      };
+      document.body.appendChild(s);
+    }
+
+    loadPartials();
+  </script>
+</body>
+</html>

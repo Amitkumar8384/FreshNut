@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Details - FreshNut</title>
+  <link rel="stylesheet" href="../css/navbar.css"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="stylesheet" href="product.css"/>
+  <link rel="stylesheet" href="../css/footer.css"/>
+
+
+</head>
+<body>
+ <header id="app-navbar"></header>
+
+<section class="product-page">
+  <div class="pd-wrap">
+
+    <div class="pd-media">
+      <img id="pdImg" class="pd-img" src="" alt="Product image">
+      <div id="pdThumbs" class="pd-thumbs"></div>
+    </div>
+
+    <div class="pd-info">
+      <span id="pdBadge" class="pd-badge"></span>
+      <h1 id="pdTitle"></h1>
+
+      <div class="pd-rating-wrap">
+        <div id="pdStars" class="stars"></div>
+        <span id="pdRatingText" class="pd-rating"></span>
+      </div>
+
+      <div class="pd-price">
+        <span id="pdOld" class="old"></span>
+        <span id="pdNew" class="new"></span>
+      </div>
+      <div id="pdStockStatus" class="pd-stock"></div>
+
+      <p id="pdDesc" class="pd-desc"></p>
+
+      <!-- Qty -->
+      <div class="pd-qty">
+        <button id="qtyDec">-</button>
+        <span id="qtyVal">1</span>
+        <button id="qtyInc">+</button>
+      </div>
+
+      <div class="pd-actions">
+        <button id="pdAdd" class="pd-add">Add to Cart</button>
+        <button id="pdWish" class="pd-wish"><i class="fa-regular fa-heart"></i> Wishlist</button>
+      </div>
+
+      <!-- Delivery strip -->
+      <div class="pd-delivery">
+        <i class="fa-solid fa-truck-fast"></i> Free Delivery |
+        <i class="fa-solid fa-rotate"></i> 7 Days Return |
+        <i class="fa-solid fa-money-bill-wave"></i> COD Available
+      </div>
+      <div class="pd-eta-check">
+        <input id="pdPincode" type="text" maxlength="6" placeholder="Enter pincode for delivery ETA" />
+        <button id="pdEtaBtn" type="button">Check ETA</button>
+      </div>
+      <p id="pdEtaResult" class="pd-eta-result"></p>
+
+      <div class="pd-extra">
+        <section class="pd-block">
+          <h3><i class="fa-solid fa-circle-info"></i> Product Details</h3>
+          <p id="pdLongDesc"></p>
+        </section>
+        <section class="pd-block">
+          <h3><i class="fa-solid fa-bolt"></i> Highlights</h3>
+          <ul id="pdHighlights"></ul>
+        </section>
+        <section class="pd-block">
+          <h3><i class="fa-solid fa-seedling"></i> Ingredients</h3>
+          <ul id="pdIngredients"></ul>
+        </section>
+        <section class="pd-block">
+          <h3><i class="fa-solid fa-box-open"></i> Specifications</h3>
+          <div id="pdSpecs" class="pd-specs"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div class="pd-related">
+    <div class="pd-related-head">
+      <h3><i class="fa-solid fa-layer-group"></i> Related Products</h3>
+      <div class="pd-related-nav">
+        <button id="relPrev" type="button"><i class="fa-solid fa-chevron-left"></i></button>
+        <button id="relNext" type="button"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+    <div id="pdRelatedTrack" class="pd-related-track"></div>
+  </div>
+
+  <!-- Reviews -->
+  <div class="pd-reviews">
+    <h3><i class="fa-solid fa-star"></i> Customer Reviews</h3>
+
+    <div class="review-form">
+      <div class="rate-input" id="rateInput"></div>
+      <input type="text" id="revName" placeholder="Your name"/>
+      <textarea id="revText" placeholder="Write your review..."></textarea>
+      <button id="revSubmit">Post Review</button>
+    </div>
+
+    <ul id="reviewList" class="review-list"></ul>
+  </div>
+</section>
+  
+ 
+<footer id="app-footer"></footer>
+
+<script>
+  async function loadPartials(){
+    const navRes = await fetch("../partials/navbar.html");
+    document.getElementById("app-navbar").innerHTML = await navRes.text();
+
+    const footRes = await fetch("../partials/footer.html");
+    document.getElementById("app-footer").innerHTML = await footRes.text();
+
+    const s = document.createElement("script");
+    s.src = "../app.js";
+    s.onload = () => {
+      initNavbar?.();
+      initAccount?.();
+      initDrawers?.();
+
+      const p = document.createElement("script");
+      p.src = "product.js";
+      document.body.appendChild(p);
+    };
+    document.body.appendChild(s);
+  }
+
+  loadPartials();
+</script>
+
+
+</body>
+</html>
+

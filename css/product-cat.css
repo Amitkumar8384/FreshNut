@@ -1,0 +1,336 @@
+/* ================= PRO CATEGORY SECTIONS (GLASS) ================= */
+.cat-section{
+  padding: 26px 18px 10px;
+  margin: 0 auto 14px;
+  max-width: 1320px;
+  border-radius: 22px;
+
+  /* Glass effect */
+  background: rgba(255, 250, 243, 0.55);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(253, 230, 138, 0.45);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.12),
+    inset 0 1px 0 rgba(255,255,255,.6);
+}
+
+/* ===== Section Header Pro Alignment + Glass ===== */
+.sec-head{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 8px auto 14px;
+  padding: 10px 14px;
+  width: min(100%, 1284px);
+  border-radius: 14px;
+
+  background: rgba(255,255,255,.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(253,230,138,.45);
+
+  box-shadow:
+    0 8px 22px rgba(0,0,0,.12),
+    inset 0 1px 0 rgba(255,255,255,.6);
+}
+
+/* ===== Section Title ===== */
+/* .sec-title{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: .4px;
+  color: #7a1f1f;
+  line-height: 1;
+  margin: 0;
+} */
+/* ===== Premium Centered Section Title ===== */
+.sec-head{
+  justify-content: center;   /* 👈 title ko center */
+}
+
+.sec-title{
+  /* position: relative; */
+  /* display: inline-flex; */
+  align-items: center;
+  /* justify-content: center; */
+  gap: 10px;
+
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: .6px;
+  color: #7a1f1f;
+  line-height: 1;
+  margin: 0 auto;
+
+  padding: 10px 18px 12px;
+  border-radius: 14px;
+
+  
+  transition: .3s ease;
+}
+
+.sec-head{
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Hover luxury effect */
+.sec-title:hover{
+  transform: translateY(-3px) scale(1.03);
+  box-shadow:
+    0 16px 36px rgba(0,0,0,.28),
+    inset 0 1px 0 rgba(255,255,255,.85);
+}
+/* Title center */
+.sec-head.center{
+  justify-content: center;
+}
+
+/* View all bottom area */
+.sec-foot{
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.sec-title:hover::after{
+  width: 90%;
+  box-shadow: 0 0 18px rgba(180,83,9,.9);
+}
+
+/* Underline Glow Accent */
+/* .sec-title::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg,#7a1f1f,#b45309);
+  box-shadow: 0 0 10px rgba(180,83,9,.6);
+} */
+
+/* ===== View All Button (Glass Pill) ===== */
+.view-all{
+  height: 36px;
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(253,230,138,.55);
+  color: #7a1f1f;
+  font-weight: 900;
+  line-height: 1;
+  cursor: pointer;
+
+  box-shadow:
+    0 6px 18px rgba(0,0,0,.15),
+    inset 0 1px 0 rgba(255,255,255,.7);
+
+  transition: .25s ease;
+}
+
+.view-all:hover{
+  transform: translateY(-2px) scale(1.03);
+  box-shadow:
+    0 12px 28px rgba(0,0,0,.22),
+    inset 0 1px 0 rgba(255,255,255,.8);
+}
+
+/* ================= GRID ================= */
+.bs-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap:16px;
+}
+
+/* ================= EMPTY STATE (GLASS) ================= */
+.bs-grid:empty::after{
+  content:"No products in this category yet 🙌";
+  grid-column:1/-1;
+  padding:22px;
+  text-align:center;
+  color:#7a1f1f;
+  font-weight:900;
+
+  background: rgba(255,250,243,.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px dashed rgba(253,230,138,.6);
+  border-radius:16px;
+
+  box-shadow:
+    0 8px 22px rgba(0,0,0,.12),
+    inset 0 1px 0 rgba(255,255,255,.6);
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:1100px){
+  .bs-grid{ grid-template-columns: repeat(3,1fr); }
+}
+@media(max-width:700px){
+  .bs-grid{ grid-template-columns: repeat(2,1fr); }
+  .bs-img img{ height:200px; }
+}
+@media(max-width:420px){
+  .bs-grid{ grid-template-columns: 1fr; }
+}
+
+
+
+/* ================= BEST SELLERS (PRO) ================= */
+.bestsellers{
+  margin: 26px 0 12px;
+  padding: 28px 18px 18px;
+  border-radius: 26px;
+
+  /* Premium glass */
+  background: radial-gradient(1200px 200px at 10% -10%, rgba(255,255,255,.65), transparent 60%),
+              rgba(255,250,243,.55);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(253,230,138,.45);
+
+  box-shadow:
+    0 14px 40px rgba(0,0,0,.18),
+    inset 0 1px 0 rgba(255,255,255,.7);
+}
+
+/* Optional ribbon glow at top */
+.bestsellers::before{
+  content:"";
+  position:absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 26px;
+  background:
+    linear-gradient(90deg, transparent, rgba(180,83,9,.12), transparent);
+  opacity:.7;
+}
+
+/* Reuse existing grid */
+#grid-bestsellers.bs-grid{ margin-top: 10px; }
+
+/* Section footer */
+.bestsellers .sec-foot{
+  display:flex;
+  justify-content:center;
+  margin-top: 18px;
+}
+
+/* Subtle hover lift for section */
+.bestsellers:hover{
+  box-shadow:
+    0 22px 60px rgba(0,0,0,.24),
+    inset 0 1px 0 rgba(255,255,255,.8);
+}
+.bs-badge.best{
+  background: linear-gradient(90deg,#7a1f1f,#b45309);
+  color:#fff7ed;
+  box-shadow: 0 6px 16px rgba(0,0,0,.25);
+}
+@media(max-width:700px){
+  #grid-bestsellers{
+    overflow: visible;
+  }
+}
+/* ===== Fix: h3/sec-title not visible ===== */
+.sec-head{
+  position: relative;
+  z-index: 2;        /* upar lao */
+  overflow: visible;/* cut na ho */
+}
+
+.sec-title{
+  position: relative;
+  z-index: 3;        /* glass layer se upar */
+  color: #7a1f1f !important;  /* force visible */
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* agar ::before / ::after overlay cover kar raha ho */
+.sec-head::before,
+.sec-head::after,
+.sec-title::before{
+  pointer-events: none;
+}
+.bestsellers,
+.best{
+  /* background: #7a1f1f; */
+  padding: 10px;
+}
+.product-category{
+  width: min(100%, 1360px);
+  margin: 0 auto;
+  padding: 10px 14px;
+}
+.view-all{
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 900;
+  letter-spacing: .3px;
+  background: linear-gradient(135deg, #7a1f1f, #b45309);
+  color: #fff7ed;
+  box-shadow: 0 10px 22px rgba(0,0,0,.35);
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+.view-all:hover{
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 16px 36px rgba(0,0,0,.45);
+  filter: brightness(1.05);
+}
+
+/* ===== Dark Mode Match ===== */
+body.dark-mode .product-category{
+  background: transparent;
+}
+
+body.dark-mode .cat-section{
+  background: linear-gradient(180deg, rgba(30,30,30,.92), rgba(22,22,22,.92));
+  border: 1px solid rgba(90,90,90,.55);
+  box-shadow:
+    0 14px 34px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+body.dark-mode .sec-head{
+  background: rgba(28,28,28,.88);
+  border: 1px solid rgba(88,88,88,.45);
+  box-shadow:
+    0 8px 22px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+body.dark-mode .sec-title{
+  color: #ffd27a !important;
+}
+
+body.dark-mode .view-all{
+  background: linear-gradient(135deg, #d18a00, #b56f00);
+  color: #1f1308;
+}
+
+body.dark-mode .bs-grid:empty::after{
+  background: rgba(29,29,29,.92);
+  color: #f3f4f6;
+  border-color: rgba(92,92,92,.6);
+}

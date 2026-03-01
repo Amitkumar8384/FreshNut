@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Account - FreshNut</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/navbar.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <link rel="stylesheet" href="./account.css" />
+</head>
+<body>
+  <header id="app-navbar"></header>
+
+  <main class="account-wrap-page">
+    <section class="account-card profile-card">
+      <h1>My Account</h1>
+      <p class="muted">Manage your profile and default delivery details.</p>
+
+      <form id="profileForm" class="account-form">
+        <label>
+          Full Name
+          <input id="accName" type="text" required />
+        </label>
+        <label>
+          Email
+          <input id="accEmail" type="email" readonly />
+        </label>
+        <label>
+          Phone
+          <input id="accPhone" type="tel" placeholder="Enter phone" />
+        </label>
+        <label>
+          City
+          <input id="accCity" type="text" placeholder="Enter city" />
+        </label>
+        <label class="full">
+          Address
+          <textarea id="accAddress" rows="3" placeholder="House no, street, area"></textarea>
+        </label>
+        <button type="submit" class="primary-btn">Save Profile</button>
+      </form>
+    </section>
+
+    <section class="account-card summary-card">
+      <h2>Account Summary</h2>
+      <div class="summary-grid">
+        <article>
+          <h4>Total Orders</h4>
+          <p id="sumOrders">0</p>
+        </article>
+        <article>
+          <h4>Total Spent</h4>
+          <p id="sumSpent">Rs 0</p>
+        </article>
+        <article>
+          <h4>Wishlist Items</h4>
+          <p id="sumWishlist">0</p>
+        </article>
+        <article>
+          <h4>Cart Quantity</h4>
+          <p id="sumCartQty">0</p>
+        </article>
+      </div>
+      <a class="link-btn" href="../orders/orders.html">View Orders</a>
+    </section>
+
+    <section class="account-card addresses-card">
+      <h2>Saved Addresses</h2>
+      <p class="muted">Save multiple delivery addresses for faster checkout.</p>
+      <div class="address-add-row">
+        <input id="addrLabel" type="text" placeholder="Address label (Home/Office)" />
+        <button id="saveAddressBtn" type="button" class="primary-btn">Save Current Profile Address</button>
+      </div>
+      <div id="savedAddressList" class="saved-address-list"></div>
+    </section>
+  </main>
+
+  <footer id="app-footer"></footer>
+
+  <script>
+    async function loadPartials() {
+      const navRes = await fetch("../partials/navbar.html");
+      document.getElementById("app-navbar").innerHTML = await navRes.text();
+
+      const footRes = await fetch("../partials/footer.html");
+      document.getElementById("app-footer").innerHTML = await footRes.text();
+
+      const s = document.createElement("script");
+      s.src = "../app.js";
+      s.onload = () => {
+        window.initNavbar?.();
+        window.initAccount?.();
+        window.initDrawers?.();
+      };
+      document.body.appendChild(s);
+    }
+    loadPartials();
+  </script>
+
+  <script src="./account.js"></script>
+</body>
+</html>
+

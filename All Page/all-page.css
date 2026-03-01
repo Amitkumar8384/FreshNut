@@ -1,0 +1,241 @@
+.ap-page {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 22px 16px 40px;
+}
+
+.ap-hero {
+  border-radius: 24px;
+  padding: 26px 24px;
+  background:
+    radial-gradient(560px 220px at 8% 0%, rgba(255, 255, 255, 0.2), transparent 68%),
+    linear-gradient(135deg, #7a1f1f, #a84317, #d97706);
+  color: #fff7ed;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.2);
+}
+
+.ap-kicker {
+  margin: 0 0 8px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 800;
+  opacity: 0.95;
+}
+
+#pageTitle {
+  margin: 0;
+  color: #fff7ed;
+  font-size: 34px;
+  font-weight: 800;
+}
+
+.ap-subtitle {
+  margin: 8px 0 0;
+  max-width: 760px;
+  color: rgba(255, 247, 237, 0.94);
+  font-size: 15px;
+}
+
+.ap-toolbar {
+  margin: 14px 0 18px;
+  border: 1px solid #fde68a;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+}
+
+.filters {
+  max-width: none;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr) 220px;
+  gap: 10px;}
+
+.filters select,
+.filters input {
+  height: 42px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  outline: none;
+  font-weight: 700;
+  color: #5b3a2b;
+  transition: border 0.15s ease, box-shadow 0.15s ease;
+}
+
+.filters select:focus,
+.filters input:focus {
+  border-color: #b45309;
+  box-shadow: 0 0 0 3px rgba(180, 83, 9, 0.16);
+}
+.filters select:focus-visible,
+.filters input:focus-visible {
+  outline: 2px solid #b45309;
+  outline-offset: 1px;
+}
+
+#productsGrid .bs-grid,
+#recentViewedGrid.bs-grid {
+  max-width: none;
+  margin: 0;
+  /* grid-template-columns: repeat(auto-fill, minmax(240px, fr)); */
+  gap: 16px;
+}
+
+#productsGrid .cat-group {
+  margin: 0 0 22px;
+}
+
+.cat-group {
+  margin: 18px 0 10px;
+}
+
+.cat-group-title {
+  margin: 0 0 10px;
+  border-radius: 12px;
+  color: #7a1f1f;
+  font-size: 20px;
+  font-weight: 800;
+  text-align: left;
+  padding: 10px 12px;
+  background: linear-gradient(90deg, #fff3cd, #fff8ea);
+  border: 1px solid #fde68a;
+}
+/* 
+#productsGrid p,
+#recentViewedGrid p {
+  background: #fff;
+  border: 1px solid #fde68a;
+  border-radius: 12px;
+  color: #7a1f1f;
+} */
+
+@media (max-width: 900px) {
+  .ap-page {
+    padding: 16px 12px 32px;
+  }
+
+  .ap-hero {
+    padding: 22px 16px;
+    border-radius: 18px;
+  }
+
+  #pageTitle {
+    font-size: 28px;
+  }
+
+  .filters {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .filters input {
+    grid-column: 1 / -1;
+  }
+
+  #productsGrid .bs-grid,
+  #recentViewedGrid.bs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 520px) {
+  .ap-page {
+    padding: 12px 10px 24px;
+  }
+
+  .ap-hero {
+    padding: 18px 14px;
+  }
+
+  #pageTitle {
+    font-size: 24px;
+  }
+
+  .ap-subtitle {
+    font-size: 14px;
+  }
+
+  .ap-toolbar {
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .filters {
+    grid-template-columns: 1fr;
+  }
+
+  .filters input,
+  .filters select {
+    height: 40px;
+  }
+
+  #productsGrid .bs-grid,
+  #recentViewedGrid.bs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .filters select,
+  .filters input {
+    transition: none !important;
+  }
+}
+
+body.dark-mode{
+  background: linear-gradient(180deg, #151515, #101010);
+}
+
+body.dark-mode .ap-page,
+body.dark-mode .ap-hero,
+body.dark-mode .ap-toolbar,
+body.dark-mode #productsGrid p,
+body.dark-mode #recentViewedGrid p{
+  background: #1f1f1f !important;
+  border-color: #3f3f3f !important;
+  color: #f3f4f6 !important;
+}
+
+body.dark-mode #pageTitle{
+  color:#ffd27a !important;
+}
+
+body.dark-mode .ap-kicker,
+body.dark-mode .ap-subtitle{
+  color:#f3f4f6 !important;
+}
+
+body.dark-mode .filters select,
+body.dark-mode .filters input{
+  background:#171717 !important;
+  border-color:#4a4a4a !important;
+  color:#f3f4f6 !important;
+}
+
+body.dark-mode .filters select:focus,
+body.dark-mode .filters input:focus{
+  border-color:#d18a00 !important;
+  box-shadow:0 0 0 3px rgba(209,138,0,.2) !important;
+}
+
+body.dark-mode .cat-group-title{
+  background: linear-gradient(90deg, #242424, #1c1c1c);
+  border-color:#4a4a4a;
+  color:#ffd27a;
+}
+
+body.dark-mode #productsGrid .bs-card,
+body.dark-mode #recentViewedGrid .bs-card{
+  background:#1f1f1f !important;
+  border-color:#3f3f3f !important;
+}
+
+body.dark-mode #productsGrid .bs-info h4,
+body.dark-mode #recentViewedGrid .bs-info h4{
+  color:#ffd27a !important;
+}

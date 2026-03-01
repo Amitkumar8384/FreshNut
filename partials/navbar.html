@@ -1,0 +1,128 @@
+<header class="main-navbar" role="banner">
+  <div class="top-offer" role="note" aria-label="Top offer">
+    
+  </div>
+
+  <nav class="main-nav" role="navigation" aria-label="Primary navigation">
+    <div class="nav-left">
+      <a data-route="index.html" href="#" aria-label="FreshNut Home">
+        <img src="https://dummyimage.com/160x44/7a1f1f/ffffff&text=FreshNut" alt="FreshNut" class="logo" />
+      </a>
+    </div>
+
+    <div class="nav-center" role="search">
+      <select id="navCategory" aria-label="Product category">
+        <option value="allcategories">All Categories</option>
+        <option value="dryfruits">Dry Fruits</option>
+        <option value="seeds">Seeds</option>
+        <option value="sweets">Sweets</option>
+        <option value="pickles">Pickles</option>
+        <option value="combos">Combo Packs</option>
+      </select>
+      <input type="search" id="navSearch" placeholder="Search for products..." aria-label="Search products" />
+      <button id="navSearchBtn" class="nav-search-btn" aria-label="Search" type="button">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </div>
+
+    <div class="nav-right">
+      <button class="icon-btn theme-btn" id="navThemeToggle" aria-label="Toggle dark mode" title="Toggle dark mode" type="button">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+
+      <div class="account-wrap" id="accountWrap">
+        <button class="icon-btn acc-btn" aria-label="Account" type="button">
+          <i class="fa-regular fa-user"></i>
+        </button>
+
+        <div class="acc-dropdown" id="accDropdown">
+          <div class="acc-head">
+            <strong id="accUserName">Guest</strong>
+            <small id="accUserEmail">Not logged in</small>
+          </div>
+
+          <a data-route="account/account.html" href="#" class="acc-link" data-auth-only style="display:none">My Account</a>
+          <a data-route="orders/orders.html" href="#" class="acc-link" data-auth-only style="display:none">My Orders</a>
+          <a data-route="auth/login.html" href="#" class="acc-link acc-login" data-guest-only>Login</a>
+          <a data-route="admin/admin.html" href="#" class="acc-link" id="adminMenuLink" style="display:none">Admin Panel</a>
+          <button id="accLogout" class="acc-logout" type="button">Logout</button>
+        </div>
+      </div>
+
+      <button class="icon-btn" title="Wishlist" aria-label="Wishlist" type="button">
+        <i class="fa-regular fa-heart"></i>
+      </button>
+
+      <div class="wish-drawer" id="wishDrawer">
+        <div class="wish-overlay" id="wishOverlay"></div>
+        <aside class="wish-panel">
+          <header class="wish-head">
+            <h3>Your Wishlist</h3>
+            <button id="wishClose" class="wish-close" type="button">x</button>
+          </header>
+          <ul class="wish-list" id="wishList"></ul>
+          <footer class="wish-foot">
+            <button class="wish-shop" id="wishShop" type="button">Shop Now</button>
+          </footer>
+        </aside>
+      </div>
+
+      <button class="icon-btn" title="Cart" aria-label="Cart" type="button">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+
+      <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-overlay" id="cartOverlay"></div>
+        <aside class="cart-panel">
+          <header class="cart-head">
+            <h3>Your Cart</h3>
+            <button id="cartClose" class="cart-close" type="button">x</button>
+          </header>
+          <ul class="cart-list" id="cartList"></ul>
+          <footer class="cart-foot">
+            <div class="cart-total">
+              <span>Total</span>
+              <strong id="cartTotal">Rs 0</strong>
+            </div>
+            <button class="cart-checkout" type="button" data-route-click="checkout/checkout.html">
+              Proceed to Checkout
+            </button>
+          </footer>
+        </aside>
+      </div>
+    </div>
+  </nav>
+
+  <div class="row nav-row">
+    <div class="nav-overlay" id="navOverlay"></div>
+    <button class="hamburger" id="hamburger" type="button">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+      <button class="drawer-close" id="drawerClose" type="button">X</button>
+
+      <ul class="nav-list" id="nav-list">
+        <li><a data-route="index.html" href="#">Home</a></li>
+        <li class="category">
+          <a href="#" class="cat-toggle">Shop by category</a>
+          <ul class="cat-dropdown">
+            <li><a href="#" data-cat="dryfruits">Dry Fruits</a></li>
+            <li><a href="#" data-cat="seeds">Seeds</a></li>
+            <li><a href="#" data-cat="sweets">Sweets</a></li>
+            <li><a href="#" data-cat="pickles">Pickles</a></li>
+            <li><a href="#" data-cat="combos">Combo Packs</a></li>
+          </ul>
+        </li>
+        <li><a data-route="All Page/view-all-page.html" href="#">All Products</a></li>
+        <li id="navMyAccountItem" style="display:none"><a data-route="account/account.html" href="#">My Account</a></li>
+        <li id="navMyOrdersItem" style="display:none"><a data-route="orders/orders.html" href="#">My Orders</a></li>
+        <li><a data-route="about/about.html" href="#">About Us</a></li>
+        <li><a data-route="contact/contact.html" href="#">Contact Us</a></li>
+
+        <li id="navAdminItem" style="display:none"><a data-route="admin/admin.html" href="#">Admin</a></li>
+        <li id="navLoginItem"><a data-route="auth/login.html" href="#">Login</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+

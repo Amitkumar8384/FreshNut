@@ -1,0 +1,301 @@
+.home-page {
+  background:
+    radial-gradient(1200px 600px at -5% -10%, rgba(251, 191, 36, 0.2), transparent 58%),
+    radial-gradient(900px 500px at 105% 10%, rgba(180, 83, 9, 0.14), transparent 60%),
+    #fffdf9;
+  color: #2b170f;
+}
+
+.home-page,
+.home-page input,
+.home-page button,
+.home-page textarea,
+.home-page select {
+  font-family: "Manrope", sans-serif;
+}
+
+.home-page .sec-title {
+  font-family: "Fraunces", serif;
+  letter-spacing: 0.2px;
+}
+
+.home-page section {
+  scroll-margin-top: 92px;
+}
+
+.home-page .hero {
+  max-width: 1240px;
+  margin: 18px auto 0;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 30px 70px rgba(43, 23, 15, 0.25);
+}
+
+.home-page .hero-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, rgba(19, 10, 8, 0.72), rgba(19, 10, 8, 0.2) 58%, transparent);
+  z-index: 0;
+}
+
+.home-page .hero-slide::after {
+  background: linear-gradient(180deg, rgba(17, 8, 7, 0.1), rgba(17, 8, 7, 0.76));
+}
+
+.home-page .hero-content {
+  left: 36px;
+  bottom: 34px;
+  max-width: 620px;
+}
+
+.home-page .hero-content h2 {
+  font-family: "Fraunces", serif;
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.05;
+  margin-bottom: 10px;
+  text-wrap: balance;
+}
+
+.home-page .hero-content p {
+  font-size: 16px;
+  margin-bottom: 18px;
+  opacity: 0.96;
+}
+
+.home-page .cta {
+  padding: 12px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #2f1b12;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+}
+
+.home-page .cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.45);
+}
+
+.home-page .prod-cats,
+.home-page .best,
+.home-page .deals,
+.home-page .why-us,
+.home-page .testimonials,
+.home-page .cta-news,
+.home-page .pay-strip,
+.home-page .cat-section {
+  position: relative;
+}
+
+.home-page .prod-cats {
+  max-width: 1240px;
+  margin: 24px auto 0;
+  padding: 22px 20px 8px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255, 248, 234, 0.88), rgba(255, 255, 255, 0.95));
+  border: 1px solid #fde6bf;
+  box-shadow: 0 16px 36px rgba(108, 62, 31, 0.1);
+}
+
+.home-page .pc-grid {
+  gap: 14px;
+}
+
+.home-page .pc-card {
+  border-radius: 18px;
+  border: 1px solid #fbd9a2;
+  box-shadow: 0 12px 24px rgba(96, 53, 24, 0.12);
+}
+
+.home-page .pc-overlay {
+  background: linear-gradient(180deg, rgba(23, 10, 6, 0.12), rgba(23, 10, 6, 0.88));
+  padding-bottom: 14px;
+}
+
+.home-page .pc-overlay span {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.home-page .best,
+.home-page .cat-section {
+  max-width: 1240px;
+  margin: 18px auto 0;
+  padding: 24px 20px 18px;
+  border-radius: 24px;
+  background: #fff;
+  border: 1px solid #f7dfb2;
+  box-shadow: 0 18px 38px rgba(108, 62, 31, 0.1);
+}
+
+.home-page .bs-grid {
+  gap: 16px;
+}
+
+.home-page .bs-card {
+  border-radius: 18px;
+  border: 1px solid #f7deb0;
+  box-shadow: 0 14px 28px rgba(80, 44, 19, 0.12);
+  overflow: hidden;
+}
+
+.home-page .bs-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 44px rgba(80, 44, 19, 0.2);
+}
+
+.home-page .bs-info {
+  padding: 14px 14px 12px;
+}
+
+.home-page .bs-info h4 {
+  font-size: 16px;
+  color: #5b210e;
+}
+
+.home-page .view-all {
+  box-shadow: 0 10px 20px rgba(80, 44, 19, 0.2);
+}
+
+.home-page .deals {
+  padding: 42px 20px;
+}
+
+.home-page .deals-wrap {
+  max-width: 1240px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.45fr 0.55fr;
+  gap: 18px;
+}
+
+.home-page .deal-banner {
+  border-radius: 22px;
+  border: 1px solid #f6d59a;
+  background: linear-gradient(130deg, #fff5dc, #fff 48%, #fff0d4);
+  box-shadow: 0 18px 34px rgba(79, 44, 20, 0.12);
+}
+
+.home-page .deal-mini {
+  border-radius: 18px;
+  border: 1px solid #f5ddaf;
+  background: linear-gradient(180deg, #fffdf6, #fff6e7);
+}
+
+.home-page .why-us {
+  padding: 42px 20px 28px;
+}
+
+.home-page .why-grid {
+  max-width: 1240px;
+  margin: auto;
+  gap: 14px;
+}
+
+.home-page .why-card {
+  border-radius: 16px;
+  border: 1px solid #f3deb9;
+  background: linear-gradient(180deg, #fff, #fffaf0);
+  box-shadow: 0 12px 24px rgba(94, 53, 26, 0.1);
+}
+
+.home-page .testimonials {
+  padding-top: 46px;
+  padding-bottom: 46px;
+}
+
+.home-page .ts-card {
+  border: 1px solid #f6dbac;
+  box-shadow: 0 16px 30px rgba(74, 40, 19, 0.12);
+}
+
+.home-page .cta-wrap {
+  max-width: 1240px;
+}
+
+.home-page .cta-left,
+.home-page .wa-card {
+  border-radius: 22px;
+}
+
+.home-page .pay-strip {
+  padding-top: 34px;
+}
+
+.home-page .pay-wrap {
+  max-width: 1240px;
+  border: 1px solid #f5ddaf;
+}
+
+.home-page .back-top,
+.home-page .wa-float {
+  border: 1px solid rgba(255, 255, 255, 0.38);
+}
+
+.home-page .reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.home-page .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.home-page :is(a, button, input, textarea, select):focus-visible {
+  outline: 3px solid rgba(180, 83, 9, 0.42);
+  outline-offset: 2px;
+}
+
+@media (max-width: 1024px) {
+  .home-page .hero {
+    margin: 14px 12px 0;
+    border-radius: 20px;
+  }
+
+  .home-page .hero-content {
+    left: 22px;
+    bottom: 22px;
+    max-width: 72%;
+  }
+
+  .home-page .best,
+  .home-page .cat-section,
+  .home-page .prod-cats {
+    margin-left: 12px;
+    margin-right: 12px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .home-page .deals-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .home-page .hero {
+    height: 280px;
+  }
+
+  .home-page .hero-content h2 {
+    font-size: 26px;
+  }
+
+  .home-page .hero-content p {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+
+  .home-page .cta {
+    padding: 9px 14px;
+    font-size: 12px;
+  }
+
+  .home-page .prod-cats,
+  .home-page .best,
+  .home-page .cat-section {
+    border-radius: 16px;
+  }
+}
